@@ -1,0 +1,186 @@
+body{
+    height: 100vh;
+    width: 100%;
+    margin:0px;
+    padding:0px;
+    display:table;
+    background:url(https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) rgba(0, 0, 0, 0.319);
+    background-blend-mode:multiply;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+  }
+
+
+
+/**HEADER AND NAVIGATION BAR STYLING**/
+
+header{
+    background-color:rgba(0, 0, 0, 0.634);
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-family:sans-serif;
+  }
+
+nav{
+
+    position: absolute;
+    top: 100%;
+    left:0%;
+    background: rgba(0, 0, 0, 0.634);
+    width: 100%;
+    text-align: left;
+    transform: scale(1,0);
+    transform-origin: top;
+    transition: transform 400ms ease-in-out;
+}
+
+
+nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+ 
+nav li{
+    margin-bottom: 1em;
+    margin-left: 1em;
+}
+
+nav a{
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 130ms ease-in-out;
+}
+
+nav a:hover{
+    color: #f5cac3;
+    
+  }
+
+  /* Navigation toggle button */
+.nav-toggle{
+    display:none;
+    transition: nav 200ms ease-in 1s; 
+}
+
+  /* (~) Looks for any preceeding sibling before or after the element/class (NOT PARENT) */
+  .nav-toggle:checked ~ nav{
+    
+    transform: scale(1,1);
+  }
+
+  .nav-toggle:checked ~ nav a{
+    opacity: 1;
+    transition: opacity 250ms ease-in-out 280ms;
+  }
+
+.nav-toggle-label{
+    position: absolute;
+    top: 0;
+    left:0;
+    margin-left: 1em;
+    height:100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after{
+    background-color: #fff;
+    height: 2px;
+    width: 1.3em;
+    position: relative;
+    border-radius: 2px;
+    display: block;
+  }
+
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after{
+    position: absolute;
+    content:'';
+  }
+  
+  .nav-toggle-label span::before{
+    bottom: 7px;
+  }
+
+  .nav-toggle-label span::after{
+    top: 7px;
+  }
+
+
+/** MAIN CONTENT STYLING **/
+  .container{
+    margin:12em auto;
+    width:60vw;
+    height:50vh;
+  }
+  
+  section h1{
+    font-family:monospace;
+    text-transform:uppercase;
+    letter-spacing: 3px;
+    padding-top: 150px;
+    font-size: 40px;
+
+  }
+  section p{
+    font-family:sans-serif;
+    text-transform:uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+  }
+
+  button{
+    border:none;
+    margin-top: 15px;
+    padding: 15px 25px;
+    font-family:sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: rgba(0, 0, 0, 0.634);
+    color: #fff;
+  }
+
+  button:hover{
+    cursor:pointer;
+    color:#000;
+    background-color: #fff;
+    
+  }
+
+  /* Media Query for desktop layout */
+
+  @media screen and (min-width: 800px) {
+    .nav-toggle-label {
+      display: none;
+    }
+
+    header{
+      display:grid;
+      grid-template-columns: 1fr auto minmax(600px,1fr)1fr;
+    }
+    
+    .logo{
+      grid-column: 2 / span 1; /* grid-column: 2/3 */
+    }
+
+    .nav{
+      grid-column: 3 / 4;
+      all: unset;
+    }
+
+    .nav a{
+      opacity: 1;
+    }
+  }
